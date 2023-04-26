@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <!--SECCION DE META DATA-->
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="comidas-mundo.jpg" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog de cocina</title>
+    <meta name="description" content="Pagina de Ejemplo para Proyecto Web Basico con HTML5, CSS">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="EST. Grupo 3">
+    <meta name="copyright" content="https://advisertecnology.com/" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+    <div class="loading show">
+      <div class="spin"></div>
+  </div>
+    <div class="container">
+       <!--ENCABEZADO-->
+        <header>
+          <h1>BIENVENIDOS A MI BLOG de recetas de cocina</h1>
+        </header> 
+      <!--NAVEGACION-->
+      <nav>
+ 
+        <div class="topnav" id="myTopnav">
+          <a href="index.html">inicio</a>
+          <a href="Recetas.html">Recetas</a>
+          <a href="Acerca del blog.html">Acerca del blog</a>
+          <a href="contactos.html" class="active">Contactos</a>
+
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </nav>
+    <!--CONTENIDO-->
+    <section id="contenido">
+
+      <!--ARTICULOS-->
+      <article>
+        <h2>Contacto</h2>
+        <article>
+           
+          <div class="formulario">
+                <form action="#">
+                  <label for="fname">Primer Nombre</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Escriba su Nombre..">
+              
+                  <label for="lname">Sus Apellidos</label>
+                  <input type="text" id="lname" name="lastname" placeholder="Escriba su Apelldios..">
+              
+                  <label for="country">Pais o Ciudad</label>
+                  <select id="country" name="country">
+                    <option value="australia">Rep. Dominicana</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                    <option value="canada">España</option>
+                    <option value="usa">Francia</option>
+                    <option value="canada">Haiti</option>
+                    <option value="usa">Venezuela</option>
+                  </select>
+              
+                  <label for="subject">Mensaje</label>
+                  <textarea id="subject" name="subject" placeholder="Dejame tu Mensaje" style="height:200px"></textarea>
+              
+                  <input type="submit" value="Enviar">
+                </form>
+              </div>
+            
+          </article>
+     
+      
+          </article> 
+    
+          <br>
+          
+        
+          
+          
+          
+        
+        
+        </aside>
+        
+        <div class="clearfix" ></div>
+
+          <!--FOOTER O PIE DE PAGINA-->
+           <!--FOOTER O PIE DE PAGINA-->
+           <footer>
+            <div class="container">
+              <p>&copy Copyright Grupo 3</p>
+            </div>
+          </footer>
+        </div>
+      
+
+     <!--FUNCION JAVASCRIPT PARA EL MENU-->
+
+        <script>
+          function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+              x.className += " responsive";
+            } else {
+              x.className = "topnav";
+            }
+          }
+
+          var Loading = (loadingDelayHidden = 1000) => {
+            let loading = null;
+            const myLoadingDelayHidden = loadingDelayHidden;
+            let imgs = [];
+            let lenImgs = 0;
+            let counterImgsLoading = 1;
+          
+            function incrementCounterImgs() {
+              counterImgsLoading += 1;
+              if (counterImgsLoading === lenImgs) {
+                hideLoading();
+              }
+            }
+          
+            function hideLoading() {
+              if (loading !== null) {
+                loading.classList.remove("show");
+                setTimeout(function () {
+                  loading.remove();
+                }, myLoadingDelayHidden);
+              }
+            }
+          
+            function init() {
+              document.addEventListener("DOMContentLoaded", function () {
+                loading = document.querySelector(".loading");
+                imgs = Array.from(document.images);
+                lenImgs = imgs.length;
+                if (imgs.length === 0) {
+                  hideLoading();
+                } else {
+                  imgs.forEach(function (img) {
+                    img.addEventListener("load", incrementCounterImgs, false);
+                  });
+                }
+                setTimeout(function () {
+                  hideLoading();
+                }, myLoadingDelayHidden);
+              });
+            }
+          
+            return { init: init };
+          };
+          
+          Loading(1000).init();
+
+          const footer = document.querySelector('footer');
+          const footerContent = document.querySelector('.footer-content');
+
+          // Función para animar el footer
+          function animateFooter() {
+          // Añade la clase "fade-in" al footer content
+          footerContent.classList.add('fade-in');
+          }
+
+          // Cuando se cargue la página, se inicia la animación
+          window.addEventListener('load', animateFooter);
+          
+          </script>
+
+        
+
+  </body>
+</html>

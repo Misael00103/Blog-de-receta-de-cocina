@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog de Recetas de Cocina</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="loading show">
+      <div class="spin"></div>
+    </div>
+    <section>
+      <nav>
+        <div class="logo">
+          <img src="img/Img.png" />
+        </div>
+
+        <div>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="acerca_de_nosotros.html">Acerca de nosotros</a></li>
+            <li><a href="recetas.html">Recetas</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div class="main_txt">
+          <h1>
+            Deja que los<span>sabores</span> te inspiren: descubre<br />nuevas
+            recetas en nuestra página de cocina
+          </h1>
+        </div>
+        <br /><br />
+        <div class="main_img">
+          <img src="img/indxfood.png" />
+        </div>
+      </div>
+
+     
+    </section>
+    <footer>
+        <div class="container">
+          <p>&copy Copyright Grupo 3</p>
+        </div>
+      </footer>
+  </body>
+  <script>
+    var Loading = (loadingDelayHidden = 1000) => {
+      let loading = null;
+      const myLoadingDelayHidden = loadingDelayHidden;
+      let imgs = [];
+      let lenImgs = 0;
+      let counterImgsLoading = 1;
+
+      function incrementCounterImgs() {
+        counterImgsLoading += 1;
+        if (counterImgsLoading === lenImgs) {
+          hideLoading();
+        }
+      }
+
+      function hideLoading() {
+        if (loading !== null) {
+          loading.classList.remove("show");
+          setTimeout(function () {
+            loading.remove();
+          }, myLoadingDelayHidden);
+        }
+      }
+
+      function init() {
+        document.addEventListener("DOMContentLoaded", function () {
+          loading = document.querySelector(".loading");
+          imgs = Array.from(document.images);
+          lenImgs = imgs.length;
+          if (imgs.length === 0) {
+            hideLoading();
+          } else {
+            imgs.forEach(function (img) {
+              img.addEventListener("load", incrementCounterImgs, false);
+            });
+          }
+          setTimeout(function () {
+            hideLoading();
+          }, myLoadingDelayHidden);
+        });
+      }
+
+      return { init: init };
+    };
+
+    Loading(1000).init();
+
+    const footer = document.querySelector("footer");
+    const footerContent = document.querySelector(".footer-content");
+
+    // Función para animar el footer
+    function animateFooter() {
+      // Añade la clase "fade-in" al footer content
+      footerContent.classList.add("fade-in");
+    }
+
+    // Cuando se cargue la página, se inicia la animación
+    window.addEventListener("load", animateFooter);
+  </script>
+</html>
